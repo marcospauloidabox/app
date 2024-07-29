@@ -1,13 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import HomeView from './components/views/HomeView.vue'
+</script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <HomeView />
 </template>
