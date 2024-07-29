@@ -29,6 +29,6 @@ export default {
 }
 
 .asside-layout div {
-  padding: 30%;
+  padding: 15%;
 }
 </style>

@@ -4,7 +4,8 @@
       <li v-for="item in menu" :key="item.id">
         <v-icon :icon="item.icon"></v-icon>
         <router-link :to="item.route">
-          <span class="menu-name">{{ item.name }}</span> </router-link>
+          <span class="menu-name">{{ item.name }}</span>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -26,7 +27,7 @@ const props = defineProps<{
 
 <style scoped>
 .principal-menu {
-  font-size: large;
+  font-size: 1.2rem;
   text-decoration: none;
 }
 .principal-menu ul {
