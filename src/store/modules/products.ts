@@ -1,45 +1,35 @@
-interface Product {
-  id: number
-  name: string
-  price: string
-  description: string
-  image: string
-}
+import axios from 'axios'
 
-interface ProductState {
-  products: Product[]
-}
-
-const state: ProductState = {
-  products: []
-}
-
-const mutations = {
-  setProducts(state: ProductState, products: Product[]) {
-    state.products = products
-  }
-}
-
-const actions = {
-  async fetchProducts({ commit }: any) {
-    try {
-      const response = await fetch('http://127.0.0.1/products')
-      const products = await response.json()
-      commit('setProducts', products)
-    } catch (error) {
-      console.error('Erro ao carregar produtos:', error)
-    }
-  }
+const state = {
+  products: [],
+  searchTerm: ''
 }
 
 const getters = {
-  allProducts: (state: ProductState) => state.products
+  allProducts: (state) => state.products
+}
+
+const actions = {
+  fetchProducts({ commit }) {
+    axios('http://localhost:3000/products')
+      .then((response) => {
+        commit('setProducts', response.data)
+      })
+      .catch((error) => {
+        console.error('Error fetching products:', error)
+      })
+  }
+}
+
+const mutations = {
+  setProducts: (state, products) => (state.products = products),
+  setSearchTerm: (state, searchTerm) => (state.searchTerm = searchTerm)
 }
 
 export default {
   namespaced: true,
   state,
-  mutations,
+  getters,
   actions,
-  getters
+  mutations
 }

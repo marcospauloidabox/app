@@ -1,39 +1,55 @@
 <template>
   <div>
     <h1>Products:</h1>
-    <input-search v-model="searchTerm" />
-    <product-card v-for="product in filteredProducts" :key="product.id" :product="product" />
+    <input-search v-model="searchTerm" @input="updateSearchTerm" />
+    <div class="product-grid">
+      <product-card v-for="product in filteredProducts" :key="product.id" :product="product" />
+    </div>
   </div>
 </template>
 
-<script>
-import { InputSearch, ProductCard } from '../base'
+<script lang="ts">
+import { defineComponent, computed } from 'vue'
+import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
+import InputSearch from '../base/InputSearch.vue'
+import ProductCard from '../base/ProductCard.vue'
 
-export default {
+export default defineComponent({
   components: {
-    'input-search': InputSearch,
-    'product-card': ProductCard
+    InputSearch,
+    ProductCard
   },
-  created() {
-    this.$store.dispatch('allProducts')
+  data() {
+    return {
+      searchTerm: ''
+    }
   },
   computed: {
-    products() {
-      return this.$store.getters.allProducts
-    },
-    searchTerm: {
-      get() {
-        return this.$store.state.searchTerm
-      },
-      set(value) {
-        this.$store.commit('searchTerm', value)
-      }
-    },
+    ...mapState('products', {
+      products: (state) => state.products
+    }),
     filteredProducts() {
       return this.products.filter((product) =>
         product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       )
     }
+  },
+  created() {
+    this.fetchProducts()
+  },
+  methods: {
+    ...mapActions('products', ['fetchProducts']),
+    updateSearchTerm(event) {
+      this.searchTerm = event.target.value
+    }
   }
-}
+})
 </script>
+
+<style>
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 16px;
+}
+</style>
