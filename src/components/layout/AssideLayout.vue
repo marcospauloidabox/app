@@ -3,26 +3,27 @@
     <menu-item :menu="menuItens" />
   </div>
 </template>
+
 <script>
 import Menu from '../base/AssideMenu.vue'
-import IconHome from '../icons/IconCommunity.vue'
+import { mdiHome, mdiCarMultiple } from '@mdi/js'
 
 export default {
   name: 'AssideLayout',
   components: {
-    'menu-item': Menu,
-    'home': IconHome
+    'menu-item': Menu
   },
   data() {
     return {
       menuItens: [
-        { id: 1, name: 'Home', icon: 'home', route: '/' },
-        { id: 2, name: 'Products', icon: 'products', route: '/products' }
+        { id: 1, name: 'Home', icon: mdiHome, route: '/' },
+        { id: 2, name: 'Products', icon: mdiCarMultiple, route: '/products' }
       ]
     }
   }
 }
 </script>
+
 <style>
 .asside-layout {
   grid-area: A;

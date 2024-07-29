@@ -2,20 +2,20 @@
   <div class="principal-menu">
     <ul>
       <li v-for="item in menu" :key="item.id">
-        <component :is="item.icon" />
-        <router-link :to="item.route">{{ item.name }}</router-link>
+        <v-icon :icon="item.icon"></v-icon>
+        <router-link :to="item.route">
+          <span class="menu-name">{{ item.name }}</span> </router-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps, type Component } from 'vue'
-
+import { defineProps } from 'vue'
 interface MenuItem {
   id: number
   name: string
-  icon: Component
+  icon: string
   route: string
 }
 
@@ -32,5 +32,9 @@ const props = defineProps<{
 .principal-menu ul {
   list-style: none;
   padding: 0;
+}
+
+.menu-name {
+  margin-left: 10px;
 }
 </style>
