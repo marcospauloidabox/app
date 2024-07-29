@@ -9,6 +9,9 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+// Store
+import store from './store'
+
 // Components
 import App from './App.vue'
 
@@ -19,9 +22,9 @@ const vuetify = createVuetify({
     defaultSet: 'mdi',
     aliases,
     sets: {
-      mdi,
-    },
-  },
+      mdi
+    }
+  }
 })
 
 import router from './router'
@@ -30,5 +33,6 @@ const app = createApp(App)
 
 app.use(router)
 app.use(vuetify)
+app.use(store)
 
 app.mount('#app')

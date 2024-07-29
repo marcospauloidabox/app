@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Home</h1>
+    <v-text-field label="Pesquisar:"></v-text-field>
   </div>
 </template>
 <script></script>

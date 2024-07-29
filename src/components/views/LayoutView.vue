@@ -1,23 +1,21 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import AssideLayout from '../layout/AssideLayout.vue'
-import HeaderLayout from '../layout/HeaderLayout.vue'
-import ContentLayout from '../layout/ContentLayout.vue'
+import { AssideLayout, ContentLayout, HeaderLayout } from '../layout'
 
 export default defineComponent({
   components: {
-    AssideLayout,
-    ContentLayout,
-    HeaderLayout
+    'asside-layout': AssideLayout,
+    'content-layout': ContentLayout,
+    'header-layout': HeaderLayout
   }
 })
 </script>
 
 <template>
   <main class="main">
-    <HeaderLayout />
-    <AssideLayout />
-    <ContentLayout />
+    <header-layout />
+    <asside-layout />
+    <content-layout />
   </main>
 </template>
 

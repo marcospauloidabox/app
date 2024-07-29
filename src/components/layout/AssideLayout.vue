@@ -9,7 +9,6 @@ import Menu from '../base/AssideMenu.vue'
 import { mdiHome, mdiCarMultiple } from '@mdi/js'
 
 export default {
-  name: 'AssideLayout',
   components: {
     'menu-item': Menu
   },
