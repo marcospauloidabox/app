@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Products:</h1>
+    <h1 class="page-title">Produtos:</h1>
     <input-search v-model="searchTerm" @input="updateSearchTerm" />
     <div class="product-grid">
       <product-card
@@ -60,9 +60,23 @@ export default defineComponent({
 </script>
 
 <style>
+.page-title {
+  margin-left: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr)); /* Usando rem */
+  gap: 1rem; /* Usando rem */
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>

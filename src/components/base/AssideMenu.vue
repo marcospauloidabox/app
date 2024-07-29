@@ -2,7 +2,6 @@
   <div class="principal-menu">
     <ul>
       <li v-for="item in menu" :key="item.id">
-        <v-icon :icon="item.icon"></v-icon>
         <router-link :to="item.route">
           <span class="menu-name">{{ item.name }}</span>
         </router-link>
@@ -33,6 +32,10 @@ const props = defineProps<{
 .principal-menu ul {
   list-style: none;
   padding: 0;
+}
+
+.principal-menu li {
+  margin-bottom: 1rem;
 }
 
 .menu-name {
