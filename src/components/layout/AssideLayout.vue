@@ -16,8 +16,8 @@ export default {
   data() {
     return {
       menuItens: [
-        { id: 1, name: 'Home', icon: mdiHome, route: '/' },
-        { id: 2, name: 'Products', icon: mdiCarMultiple, route: '/products' }
+        { id: 1, name: 'Home', icon: mdiHome, route: 'home' },
+        { id: 2, name: 'Products', icon: mdiCarMultiple, route: 'products' }
       ]
     }
   }
