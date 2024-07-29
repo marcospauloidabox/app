@@ -3,24 +3,34 @@
     <h1>Products:</h1>
     <input-search v-model="searchTerm" @input="updateSearchTerm" />
     <div class="product-grid">
-      <product-card v-for="product in filteredProducts" :key="product.id" :product="product" />
+      <product-card
+        v-for="product in filteredProducts"
+        :key="product.id"
+        :product="product"
+        @click="openModal(product)"
+      />
     </div>
+    <modal-view v-model:dialog="dialog" :product="selectedProduct" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
-import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { InputSearch, ProductCard } from '../base'
+import ModalView from './ModalView.vue'
 
 export default defineComponent({
   components: {
     InputSearch,
-    ProductCard
+    ProductCard,
+    'modal-view': ModalView
   },
   data() {
     return {
-      searchTerm: ''
+      searchTerm: '',
+      dialog: false,
+      selectedProduct: null
     }
   },
   computed: {
@@ -40,6 +50,10 @@ export default defineComponent({
     ...mapActions('products', ['fetchProducts']),
     updateSearchTerm(event) {
       this.searchTerm = event.target.value
+    },
+    openModal(product) {
+      this.selectedProduct = product
+      this.dialog = true
     }
   }
 })
