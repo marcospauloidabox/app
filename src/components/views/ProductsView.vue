@@ -11,8 +11,7 @@
 <script lang="ts">
 import { defineComponent, computed } from 'vue'
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
-import InputSearch from '../base/InputSearch.vue'
-import ProductCard from '../base/ProductCard.vue'
+import { InputSearch, ProductCard } from '../base'
 
 export default defineComponent({
   components: {
