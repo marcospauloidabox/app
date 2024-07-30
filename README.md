@@ -1,45 +1,103 @@
-# app
+Aqui está o README formatado para facilitar a cópia e colagem:
 
-This template should help get you started developing with Vue 3 in Vite.
+---
 
-## Recommended IDE Setup
+# Sistema de Lista de Produtos
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Este projeto é uma aplicação de lista de produtos desenvolvida com Vue.js, incluindo uma interface de usuário para exibição e filtro de produtos, integração com uma API fictícia e uma experiência de usuário responsiva.
 
-## Type Support for `.vue` Imports in TS
+## Funcionalidades
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Listagem de Produtos:** Exibe uma lista de produtos com imagem, nome e preço.
+- **Detalhes do Produto:** Modal ou página dedicada com detalhes completos do produto.
+- **Filtros de Produtos:** Campo de busca por nome e filtro de faixa de preço.
+- **Componentes Reutilizáveis:** Estrutura modular para fácil manutenção.
 
-## Customize configuration
+## Tecnologias Utilizadas
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- **Vue.js** para a interface de usuário.
+- **Vue Router** para navegação.
+- **Vuetify** para componentes UI.
+- **Node.js e Express** para a API backend.
+- **Docker** para containerização.
 
-## Project Setup
+## Configuração e Execução
 
-```sh
-npm install
-```
+### Pré-requisitos
 
-### Compile and Hot-Reload for Development
+- Node.js v16 ou superior
+- Docker (opcional, mas recomendado para facilitar a configuração)
 
-```sh
-npm run dev
-```
+### Configuração Local
 
-### Type-Check, Compile and Minify for Production
+1. **Clone o repositório:**
 
-```sh
-npm run build
-```
+   ```bash
+   git clone https://github.com/your-repo-url.git
+   cd your-repo-url
+   ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+2. **Instale as dependências:**
 
-```sh
-npm run test:unit
-```
+   ```bash
+   npm install
+   ```
 
-### Lint with [ESLint](https://eslint.org/)
+3. **Inicie o servidor de desenvolvimento:**
 
-```sh
-npm run lint
-```
+   ```bash
+   npm run dev
+   ```
+
+4. **Acesse a aplicação no navegador:**
+
+   Acesse `http://localhost:5173` para visualizar a aplicação.
+
+### Execução da API
+
+A API está localizada na pasta `api` e pode ser iniciada de duas maneiras: manualmente ou usando Docker.
+
+#### Iniciar Manualmente
+
+1. **Acesse a pasta da API:**
+
+   ```bash
+   cd api
+   ```
+
+2. **Instale as dependências da API:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Inicie a API:**
+
+   ```bash
+   npm start
+   ```
+
+   A API estará disponível em `http://127.0.0.1:3000`.
+
+#### Iniciar com Docker
+
+1. **Construa e execute o contêiner Docker:**
+
+   ```bash
+   docker build -t products-api .
+   docker run -p 3000:3000 products-api
+   ```
+
+   A API estará disponível em `http://127.0.0.1:3000`.
+
+## Contribuição
+
+Se você deseja contribuir para o projeto, por favor, crie um fork do repositório, faça suas alterações em uma branch separada e envie um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
+---
+
+Sinta-se à vontade para copiar e colar este conteúdo no seu arquivo README.md, ajustando conforme necessário para se adequar ao seu projeto.
