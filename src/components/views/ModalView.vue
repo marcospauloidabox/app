@@ -1,5 +1,6 @@
 <template>
-  <v-dialog v-model="internalDialog" width="400">
+  <v-dialog v-model="internalDialog" max-width="650px">
+    <!-- Mantém o tamanho padrão -->
     <v-card class="custom-card">
       <v-card-title class="headline">{{ product.name }}</v-card-title>
       <v-card-text>
@@ -8,7 +9,7 @@
         <p>{{ product.description }}</p>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="primary" text @click="closeDialog">Close</v-btn>
+        <v-btn color="primary" text @click="closeDialog">Fechar</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -44,9 +45,21 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .custom-card {
   height: 600px;
   width: 650px;
+}
+
+@media (max-width: 768px) {
+  .custom-card {
+    max-height: 90vh;
+    max-width: 90vw;
+    overflow-y: auto;
+  }
+  .custom-card img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 </style>

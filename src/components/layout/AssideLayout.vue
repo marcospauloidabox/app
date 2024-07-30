@@ -65,9 +65,11 @@ export default defineComponent({
     left: 0;
     width: 150px; /* Reduzido de 200px para 150px */
     height: 100%;
-    background-color: white;
+    background-color: rgb(0, 0, 138);
+    color: white;
     z-index: 1000;
-    padding-left: 10px; /* Adicionado padding para melhor visualização */
+    pedding-top: 20px;
+    padding-left: 20px;
     margin-top: 50px;
     height: 150px;
   }

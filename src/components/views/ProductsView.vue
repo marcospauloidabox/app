@@ -59,7 +59,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style scoped>
 .page-title {
   margin-left: 1rem;
   margin-top: 2rem;
@@ -68,7 +68,7 @@ export default defineComponent({
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr)); /* Usando rem */
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); /* Ajustado para 20rem */
   gap: 1rem; /* Usando rem */
 }
 

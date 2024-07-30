@@ -1,6 +1,6 @@
 <template>
   <div class="product-image">
-    <v-card class="mx-auto" width="400">
+    <v-card class="mx-auto" max-width="100%">
       <template v-slot:title>
         <span class="font-weight-black">{{ product.name }}</span>
         <p class="product-price">R$ {{ product.price.toFixed(2) }}</p>
@@ -12,6 +12,7 @@
     </v-card>
   </div>
 </template>
+
 <script>
 export default {
   props: {
@@ -22,9 +23,10 @@ export default {
   }
 }
 </script>
-<style>
+
+<style scoped>
 .product-image img {
-  max-width: 370px;
+  max-width: 100%;
   height: auto;
 }
 .product-price {

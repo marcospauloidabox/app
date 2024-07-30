@@ -29,6 +29,7 @@ const props = defineProps<{
   font-size: 1.2rem;
   text-decoration: none;
 }
+
 .principal-menu ul {
   list-style: none;
   padding: 0;
@@ -40,5 +41,15 @@ const props = defineProps<{
 
 .menu-name {
   margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .menu-name {
+    color: white;
+  }
+
+  .principal-menu li {
+    margin-top: 1.5rem;
+  }
 }
 </style>
