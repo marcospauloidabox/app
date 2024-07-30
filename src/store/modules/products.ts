@@ -10,14 +10,16 @@ const getters = {
 }
 
 const actions = {
-  fetchProducts({ commit }) {
-    axios('http://localhost:3000/products')
-      .then((response) => {
-        commit('setProducts', response.data)
-      })
-      .catch((error) => {
-        console.error('Error fetching products:', error)
-      })
+  async fetchProducts({ commit }) {
+    try {
+      const response = await axios.get('http://localhost:3000/products')
+      commit('setProducts', response.data)
+    } catch (error) {
+      console.error('Error fetching products:', error)
+    }
+  },
+  updateSearchTerm({ commit }, searchTerm) {
+    commit('setSearchTerm', searchTerm)
   }
 }
 
